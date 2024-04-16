@@ -1,0 +1,17 @@
+<%- include('partials/navigation.ejs') %>
+<h1>Books</h1>
+<ul>
+    <% if (books.length > 0) { %>
+        <% books.forEach(book => { %>
+            <li>
+                <%= book.title %> by <%= book.authorId %>
+                - <a href="/book/<%= book.id %>">Details</a>
+                <form action="/book/delete/<%= book.id %>" method="post" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        <% }) %>
+    <% } else { %>
+        <p>No books have been found.</p>
+    <% } %>
+</ul>
